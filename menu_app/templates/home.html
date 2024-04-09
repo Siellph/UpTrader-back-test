@@ -1,0 +1,13 @@
+{% load menu_tag %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Page</title>
+</head>
+<body>
+    <div class="menu">
+        {% draw_menu 'main_menu' request %}
+        {% draw_menu 'home' request %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<ul>
+    {% for item in menu_items %}
+        <li {% if item.url == current_url %}class="active"{% endif %}>
+            <a href="{{ item.url }}">{{ item.title }}{% if item.url == current_url %} - вы здесь{% endif %}</a>
+            {% if item.children.exists %}
+                <ul>
+                    {% for child in item.children.all %}
+                        <li {% if child.url == current_url %}class="active"{% endif %}>
+                            <a href="{{ child.url }}">{{ child.title }}{% if child.url == current_url %} - вы здесь{% endif %}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>
